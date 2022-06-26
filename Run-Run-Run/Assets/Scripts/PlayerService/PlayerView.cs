@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerView : MonoBehaviour
+namespace Scripts.PlayerService
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerView : MonoBehaviour
     {
-        
-    }
+        private PlayerController playerController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public void SetPlayerController(PlayerController playerController)
+        {
+            this.playerController = playerController;
+        }
     }
 }
