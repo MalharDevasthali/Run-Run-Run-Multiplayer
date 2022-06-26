@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenericSinglton : MonoBehaviour
+namespace Scripts.Commons
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GenericSinglton<T> : MonoBehaviour where T : GenericSinglton<T>
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public static GenericSinglton<T> instance;
+        private void Awake()
+        {
+            if(instance == null)
+            {
+                Destroy(this.gameObject);
+                Debug.LogError("You are trying to create a singleton which is already present in project");
+            }
+            else
+            {
+                instance = this;
+            }
+        }
+
     }
 }
