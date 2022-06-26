@@ -13,8 +13,17 @@ namespace Scripts.PlayerService
         public PlayerController(PlayerView _playerView , PlayerModel _playerModel)
         {
             playerModel = _playerModel;
-            PlayerView = GameObject.Instantiate<PlayerView>(_playerView); 
+            PlayerView = GameObject.Instantiate<PlayerView>(_playerView);
+
+            playerModel.SetPlayerController(this);
+            PlayerView.SetPlayerController(this);
             
+        }
+
+        public void Move(Rigidbody2D rigidbody,Vector2 direction)
+        {
+            
+            rigidbody.velocity = direction * playerModel.movementSpeed;
         }
     }
 }
