@@ -1,18 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Scripts.Commons;
 
-public class PlayerService : MonoBehaviour
+public class PlayerService : GenericSinglton<PlayerService>
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+ 
+   
 }

@@ -7,19 +7,20 @@ namespace Scripts.Commons
     public class GenericSinglton<T> : MonoBehaviour where T : GenericSinglton<T>
     {
 
-        public static GenericSinglton<T> instance;
+        private static T Instance;
+        public static T instance { get { return Instance; } }
         private void Awake()
         {
-            if(instance == null)
+            if(Instance == null)
             {
-                Destroy(this.gameObject);
-                Debug.LogError("You are trying to create a singleton which is already present in project");
+                Instance = (T)this;
+            
             }
             else
             {
-                instance = this;
+                Destroy(this.gameObject);
+                Debug.LogError(Instance+" singleton is trying to create another instance.");
             }
         }
-
     }
 }
