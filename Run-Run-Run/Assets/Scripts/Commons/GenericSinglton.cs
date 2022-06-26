@@ -14,7 +14,7 @@ namespace Scripts.Commons
             if(Instance == null)
             {
                 Instance = (T)this;
-            
+        
             }
             else
             {
