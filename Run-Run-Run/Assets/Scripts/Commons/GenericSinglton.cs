@@ -11,15 +11,15 @@ namespace Scripts.Commons
         public static T instance { get { return Instance; } }
         private void Awake()
         {
-            if(Instance == null)
+            if (Instance == null)
             {
                 Instance = (T)this;
-        
+
             }
             else
             {
                 Destroy(this.gameObject);
-                Debug.LogError(Instance+" singleton is trying to create another instance.");
+                Debug.LogError(Instance + " singleton is trying to create another instance.");
             }
         }
     }

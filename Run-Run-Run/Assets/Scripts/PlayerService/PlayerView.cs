@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Scripts.PlayerService
+namespace Scripts.PlayerServices
 {
     public class PlayerView : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Scripts.PlayerService
         {
             rb2d = GetComponent<Rigidbody2D>();
         }
-        
+
         public void SetPlayerController(PlayerController playerController)
         {
             this.playerController = playerController;
@@ -24,7 +24,7 @@ namespace Scripts.PlayerService
         private void Update()
         {
 
-           playerController.Move(rb2d, new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+            playerController.Move(rb2d, new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
 
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Scripts.PlayerService
+namespace Scripts.PlayerServices
 
 {
     public class PlayerModel
@@ -12,14 +12,17 @@ namespace Scripts.PlayerService
         public int health { get; private set; }
         public int attackPower { get; private set; }
 
+        public int score { get; private set; }
+
 
         private PlayerController playerController;
 
-        public PlayerModel (PlayerScriptableObject scriptableObject)
+        public PlayerModel(PlayerScriptableObject scriptableObject)
         {
             movementSpeed = scriptableObject.movementSpeed;
             health = scriptableObject.health;
             attackPower = scriptableObject.attackPower;
+            score = scriptableObject.score;
         }
 
 
@@ -28,5 +31,10 @@ namespace Scripts.PlayerService
             this.playerController = playerController;
         }
 
-    }   
+        public void UpdateScore()
+        {
+            score++;
+        }
+
+    }
 }
