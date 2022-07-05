@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using Photon.Pun;
+using TMPro;
+using UnityEngine;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 {
-    public TMP_InputField createLobbyInput;
-    public TMP_InputField joinLobbyInput;
+    [SerializeField] private TMP_InputField createLobbyInput;
+    [SerializeField] private TMP_InputField joinLobbyInput;
+    [SerializeField] private TMP_Text lobbyJoinFialedText;
 
     public void CreateRoom()
     {
@@ -18,6 +16,11 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         PhotonNetwork.JoinRoom(joinLobbyInput.text);
+    }
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        base.OnCreateRoomFailed(returnCode, message);
+        lobbyJoinFialedText.gameObject.SetActive(true);
     }
 
     public override void OnJoinedRoom()
